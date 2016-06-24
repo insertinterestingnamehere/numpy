@@ -1,0 +1,32 @@
+package:
+  name: numpy
+  version: 1.11.0
+
+source:
+  fn: numpy-1.11.0.tar.gz
+  url: https://pypi.io/packages/source/n/numpy/numpy-1.11.0.tar.gz
+  md5: bc56fb9fc2895aa4961802ffbdb31d0b
+
+build:
+  number: 10
+
+requirements:
+  build:
+    - cython
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  requires:
+    - nose
+  commands:
+    - f2py -h
+    - python -c "import numpy; numpy.test('full')"
+
+about:
+  home: http://numpy.scipy.org/
+  license: BSD 3-Clause
+  license_file: LICENSE.txt
+  summary: array processing for numbers, strings, records, and objects.
